@@ -1,0 +1,31 @@
+version: '3'
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.pgsql
+    container_name: docker-postgre
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - '25432:5432'
+    networks:
+      my_network:
+        ipv4_address: 10.11.0.3
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+    restart: always
+volumes:
+  db:
+    driver: local
+networks:
+  my_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.11.0.0/16
+    external: true
