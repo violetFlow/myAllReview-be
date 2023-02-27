@@ -1,0 +1,15 @@
+{
+    "Postgres": {
+      "dbConfig": {
+        "user": "postgres",
+        "host": "10.11.0.3",
+        "database": "postgres",
+        "password": "postgres",
+        "port": 5432
+      },
+      "credit": {
+        "initialLimit": 100,
+        "initialDays": 1
+      }
+    }
+  }
